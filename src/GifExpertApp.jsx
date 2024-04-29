@@ -10,8 +10,8 @@ export const GifExpertApp = () => {
   ]);
 
   const onAddCategory = () => {
-    setCategorias(["HunterXHunter", ...categorias]);
-    
+      setCategorias(["HunterXHunter", ...categorias]);
+
   };
 
   return (
@@ -21,10 +21,10 @@ export const GifExpertApp = () => {
       <h2>GifExpertApp</h2>
 
       {/* Input */}
-      <AddCategory handleCatoregorys={ setCategorias } />
+      <AddCategory setCategorias={ setCategorias } />
 
       {/* Lista de Gif */}
-      <button onClick={onAddCategory}> Agregar </button>
+      {/* <button onClick={onAddCategory}> Agregar </button> */}
       
       
       <ol>

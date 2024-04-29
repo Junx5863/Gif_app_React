@@ -1,27 +1,33 @@
 import { useState } from "react";
 
+const AddCategory = ({ setCategorias }) => {
 
+  const [inputValue, setInputValue] = useState('');
 
- const AddCategory = ({ setCategorias }) => {
+  const handleInputChange = ({ target }) => {
+    setInputValue(target.value);
+  };
 
-    const [inputValue, setInputValue] = useState('Naruto');
-    const handleInputChange = ({ target }) => {
-        setInputValue(target.value);
-    }
-    const onSubmit = (e) => {
-        e.preventDefault();
-        setCategorias( cats => [inputValue, ...cats]);
+  const onSubmit = (e) => {
+    e.preventDefault();
 
-    }
+    if (inputValue.trim().length <= 1) return;
 
-    return(
-        <form onSubmit={ onSubmit }>
-            <input type="text" 
+    setCategorias((cats) => [inputValue, ...cats]);
+
+    setInputValue(""); 
+  };
+
+  return (
+    <form onSubmit={onSubmit}>
+      <input
+        type="text"
         placeholder="Buscar Gif"
         value={inputValue}
-        onChange={ handleInputChange } />
-        </form>
-    );
-}
+        onChange={handleInputChange}
+      />
+    </form>
+  );
+};
 
 export default AddCategory;
