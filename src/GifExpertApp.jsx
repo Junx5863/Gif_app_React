@@ -9,10 +9,12 @@ export const GifExpertApp = () => {
     "Dragon Ball",
   ]);
 
-  const onAddCategory = () => {
-      setCategorias(["HunterXHunter", ...categorias]);
+  const onAddCategory = ( newCategory ) => {
 
-  };
+
+    setCategorias([newCategory, ...categorias]);
+  
+};
 
   return (
     <>
@@ -21,12 +23,14 @@ export const GifExpertApp = () => {
       <h2>GifExpertApp</h2>
 
       {/* Input */}
-      <AddCategory setCategorias={ setCategorias } />
+      <AddCategory
+        onNewCategory={ onAddCategory }
+        //   setCategorias={ setCategorias }
+      />
 
       {/* Lista de Gif */}
       {/* <button onClick={onAddCategory}> Agregar </button> */}
-      
-      
+
       <ol>
         {categorias.map((categoria) => {
           return <li key={categoria}>{categoria}</li>;
