@@ -1,10 +1,8 @@
-
- export const GifItemList = () => {
-    return (
-        <div>
-            <h1>GifItem</h1>
-        </div>
-    );
+export const GifItemList = ({ title, url }) => {
+  return (
+    <div className="card">
+      <img src={ url } alt={ title } />
+      <p>{ title }</p>
+    </div>
+  );
 };
-
-
